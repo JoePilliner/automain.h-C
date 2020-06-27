@@ -29,6 +29,6 @@ automain.h includes stdio.h, stdlib.h, and string.h from the C Standard Library 
 
 ## Example Program
 
-src-example/automain_example.c is an example program that sequentially echoes back the virtual argument strings in the virtual argument string vector it is passed as a parameter.
+src-example/automain_example.c is an example program that sequentially prints to stdout the virtual argument strings in the virtual argument string vector it is passed as a parameter.
 
 src-example/automain_example.c can be compiled to bin-example/automain_example by invoking GNU ```make``` on the included Makefile within a 'Nix shell
