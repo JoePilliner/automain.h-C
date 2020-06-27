@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-extern inline int automain(const register int argc, const register int vargc, register char **vargv); //automain is passed argc (the number of actual arguments), vargc (the number of virtual arguments), and vargv (the vector of C-string virtual arguments)
+extern inline int automain(const register int argc, register int vargc, register char **vargv); //automain is passed argc (the number of actual arguments), vargc (the number of virtual arguments), and vargv (the vector of C-string virtual arguments)
 
 int main(int argc, char **argv)
 {
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
         {
             char *buffer_chunk = calloc(BUFSIZ, sizeof(char));
 
-            printf("Anonymous Automain Arguments:\r\n");
+            puts("Anonymous Automain Arguments:");
             while(fgets(buffer_chunk, BUFSIZ, stdin) != NULL)
             {
                 if((vargv = realloc((void *) vargv, (vargc + 1) * sizeof(char *))) == NULL)
@@ -51,14 +51,14 @@ int main(int argc, char **argv)
                 strncpy(vargv [vargc], buffer_chunk, strlen(buffer_chunk));
                 vargc++;
             }
-            printf("\r\nAnonymous Automain:\r\n");
+            puts("\r\nAnonymous Automain:");
             vargv [vargc] = NULL;
             free(buffer_chunk);
             automain(argc, vargc, vargv);
         }
         else
         {
-            fprintf(stderr, "Automain argc changed between comparisons. As of the 4th of June 2020 BCE (Gregorian Calendar), this error should be impossible.\r\n");
+            fputs("Automain argc changed between comparisons. As of the 4th of June 2020 BCE (Gregorian Calendar), this error should be impossible.\r\n", stderr);
         }
     }
 }
