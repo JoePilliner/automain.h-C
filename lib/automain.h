@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-extern int automain(int argc, int vargc, char **vargv); //automain is passed argc (the number of actual arguments), vargc (the number of virtual arguments), and vargv (the vector of C-string virtual arguments)
+extern inline int automain(const register int argc, const register int vargc, register char **vargv); //automain is passed argc (the number of actual arguments), vargc (the number of virtual arguments), and vargv (the vector of C-string virtual arguments)
 
 int main(int argc, char **argv)
 {
